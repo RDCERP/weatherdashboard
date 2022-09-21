@@ -15,45 +15,95 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">Weather Dashboard</h1>
-                        <p class="card-text">Search for a city to get the current weather and a 5-day forecast.</p>
-                        <form>
-                            <div class="form-group">
-                                <label for="citySearch">City</label>
-                                <input type="text" class="form-control" id="citySearch" placeholder="Enter a city">
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
-                        </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Weather Dashboard</h1>
+            <p>Search for a city to get the current weather and a 5-day forecast.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <label for="citySearch">City</label>
+                    <input type="text" class="form-control" id="citySearch" placeholder="Enter a city">
+                </div>
+                <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" id="currentWeather">
+                <div class="card-body">
+                    <h5 class="card-title" id="cityName"></h5>
+                    <p class="card-text" id="currentDate"></p>
+                    <p class="card-text" id="currentTemp"></p>
+                    <p class="card-text" id="currentHumidity"></p>
+                    <p class="card-text" id="currentWind"></p>
+                    <p class="card-text" id="currentUV"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" id="fiveDayForecast">
+                <div class="card-body">
+                    <h5 class="card-title">5-Day Forecast</h5>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="card-text" id="dayOneDate"></p>
+                            <p class="card-text" id="dayOneTemp"></p>
+                            <p class="card-text" id="dayOneHumidity"></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="card-text" id="dayTwoDate"></p>
+                            <p class="card-text" id="dayTwoTemp"></p>
+                            <p class="card-text" id="dayTwoHumidity"></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="card-text" id="dayThreeDate"></p>
+                            <p class="card-text" id="dayThreeTemp"></p>
+                            <p class="card-text" id="dayThreeHumidity"></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="card-text" id="dayFourDate"></p>
+                            <p class="card-text" id="dayFourTemp"></p>
+                            <p class="card-text" id="dayFourHumidity"></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="card-text" id="dayFiveDate"></p>
+                            <p class="card-text" id="dayFiveTemp"></p>
+                            <p class="card-text" id="dayFiveHumidity"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+  
+       
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">Current Weather</h1>
-                        <p class="card-text">City: <span id="city"></span></p>
-                        <p class="card-text">Temperature: <span id="temp"></span></p>
-                        <p class="card-text">Humidity: <span id="humidity"></span></p>
-                        <p class="card-text">Wind Speed: <span id="windSpeed"></span></p>
-                        <p class="card-text">UV Index: <span id="uvIndex"></span></p>
-                    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" id="searchHistory">
+                <div class="card-body">
+                    <h5 class="card-title">Search History</h5>
+                    <ul class="list-group" id="searchHistoryList">
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-    
 
-    <script src="./assets/js/script.js"></script>
+
+
+<script src="./assets/js/script.js"></script>
 
 
     
