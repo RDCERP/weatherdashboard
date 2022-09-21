@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link re="stylesheet" href="./assets/css/style.css"
+    <!-- Added jQuery CDN to load data from the openweathermap.org API -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> "
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+
+    <title>Ryan's Weather Dashboard</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Weather Dashboard</h1>
+                        <p class="card-text">Search for a city to get the current weather and a 5-day forecast.</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="citySearch">City</label>
+                                <input type="text" class="form-control" id="citySearch" placeholder="Enter a city">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Current Weather</h1>
+                        <p class="card-text">City: <span id="city"></span></p>
+                        <p class="card-text">Temperature: <span id="temp"></span></p>
+                        <p class="card-text">Humidity: <span id="humidity"></span></p>
+                        <p class="card-text">Wind Speed: <span id="windSpeed"></span></p>
+                        <p class="card-text">UV Index: <span id="uvIndex"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+
+    <script src="./assets/js/script.js"></script>
+
+
+    
+</body>
+<footer>
+    <p>© 2022 Ryan's Weather Dashboard</p>
+</footer>
+</html>
