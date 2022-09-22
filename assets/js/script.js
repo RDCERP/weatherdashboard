@@ -274,7 +274,7 @@ var displayUvIndex = function (index) {
     uvIndexEl.classList = "severe";
   }
 
-  currentUvEl.appendChild(uvIndexEl);
+//   currentUvEl.appendChild(uvIndexEl);
 };
 
 // function to handle the search form submit
