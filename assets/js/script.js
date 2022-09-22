@@ -20,10 +20,11 @@ var currentWindEl = document.querySelector("#currentWind");
 var currentUvEl = document.querySelector("#currentUV");
 var forecastEl = document.querySelector("#fiveDayForecast");
 var forecastTitle = document.querySelector('#forecast-title')
-var forecastDateEl = document.querySelector("#forecast-date");
-var forecastTempEl = document.querySelector("#forecast-temp");
-var forecastHumidityEl = document.querySelector("#forecast-humidity");
-var forecastIconEl = document.querySelector("#forecast-icon");
+var forecastWindEl = document.querySelector("#forecastWind");
+// var forecastDateEl = document.querySelector("#forecast-date");
+// var forecastTempEl = document.querySelector("#forecast-temp");
+// var forecastHumidityEl = document.querySelector("#forecast-humidity");
+// var forecastIconEl = document.querySelector("#forecast-icon");
 
 // API Key
 var apiKey = "a21465154dcfd209d235adf77262204e";
@@ -40,7 +41,7 @@ var getCurrentWeather = function (city) {
       if (response.ok) {
         response.json().then(function (data) {
           displayCurrentWeather(data, city);
-          cityExist = true;
+        
           saveCityList();
           renderCityList();
           currentWeather.style.border = "2px solid grey";
@@ -48,7 +49,7 @@ var getCurrentWeather = function (city) {
         });
       } else {
         alert("Error: " + response.statusText);
-           cityExist = false
+         
       }
     })
     .catch(function (error) {
@@ -70,11 +71,11 @@ var getForecast = function (city) {
         response.json().then(function (data) {
           displayForecast(data);
           console.log(data)
-          cityExist = true;
+        
         });
       } else {
         alert("Error: " + response.statusText);
-        cityExist = false;
+       
       }
     })
     .catch(function (error) {
@@ -188,14 +189,20 @@ var displayCurrentWeather = function (weather, searchCity) {
   windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
   windSpeedEl.classList = "list-group-item";
 
+  var UVEl = document.createElement("span");
+UVEl.textContent = "UV: " + getUvIndex(weather.coord.lat, weather.coord.lon);
+  UVEl.classList = "list-group-item";
+
+
   // append to page
   currentCityEl.appendChild(cityNameEl);
   currentTempEl.appendChild(temperatureEl);
   currentHumidityEl.appendChild(humidityEl);
   currentWindEl.appendChild(windSpeedEl);
+ //   currentUvEl.appendChild(UVEl);
 
   // get the UV index
-    getUvIndex(weather.coord.lat, weather.coord.lon);
+    // getUvIndex(weather.coord.lat, weather.coord.lon);
 };
 
 // function to render the forecast
@@ -249,6 +256,10 @@ var displayForecast = function (weather) {
       humidityEl.classList = "card-text";
       humidityEl.textContent = "Humidity: " + weather.list[i].main.humidity + "%";
 
+      var windSpeedEl = document.createElement("p");
+        windSpeedEl.classList = "card-text";
+        windSpeedEl.textContent = "Wind Speed: " + weather.list[i].wind.speed + " MPH";
+
       // merge together and put on page
       colEl.appendChild(cardEl);
       cardEl.appendChild(bodyEl);
@@ -256,26 +267,27 @@ var displayForecast = function (weather) {
       bodyEl.appendChild(weatherIcon);
       bodyEl.appendChild(tempEl);
       bodyEl.appendChild(humidityEl);
+      bodyEl.append(windSpeedEl);
       forecastEl.appendChild(colEl);
     }
   }
 };
 
 // function to render the UV index
-var displayUvIndex = function (index) {
-  var uvIndexEl = document.createElement("span");
-  uvIndexEl.textContent = index.value;
+// var displayUvIndex = function (index) {
+//   var uvIndexEl = document.createElement("span");
+//   uvIndexEl.textContent = index.value;
 
-  if (index.value <= 2) {
-    uvIndexEl.classList = "favorable";
-  } else if (index.value > 2 && index.value <= 8) {
-    uvIndexEl.classList = "moderate";
-  } else if (index.value > 8) {
-    uvIndexEl.classList = "severe";
-  }
+//   if (index.value <= 2) {
+//     uvIndexEl.classList = "favorable";
+//   } else if (index.value > 2 && index.value <= 8) {
+//     uvIndexEl.classList = "moderate";
+//   } else if (index.value > 8) {
+//     uvIndexEl.classList = "severe";
+//   }
 
 //   currentUvEl.appendChild(uvIndexEl);
-};
+// };
 
 // function to handle the search form submit
 var formSubmitHandler = function (event) {
