@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link re="stylesheet" href="./assets/css/style.css"
+    <link rel="stylesheet" href="./assets/css/style.css"
     <!-- Added jQuery CDN to load data from the openweathermap.org API -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> "
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 
@@ -17,24 +16,36 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 header">
             <h1>Weather Dashboard</h1>
             <p>Search for a city to get the current weather and a 5-day forecast.</p>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-md-12">
-            <form>
+        <div class="col-md-3">
+            <form id="city-search-form">
                 <div class="form-group">
-                    <label for="citySearch">City</label>
+                    <label for="citySearch" id="city-label">Search for a City:</label>
                     <input type="text" class="form-control" id="citySearch" placeholder="Enter a city">
                 </div>
                 <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
-            </form>
+            </form><br>
+
+            <div class="">
+                <div class="card" id="searchHistory">
+                    <div class="card-body">
+                        <h5 class="card-title">Search History</h5>
+                        <ul class="list-group" id="searchHistoryList">
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+    <!-- </div> -->
+
+    <!-- <div class="row"> -->
+        <div class="col-md-9">
             <div class="card" id="currentWeather">
                 <div class="card-body">
                     <h5 class="card-title" id="cityName"></h5>
@@ -45,59 +56,68 @@
                     <p class="card-text" id="currentUV"></p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card" id="fiveDayForecast">
+        <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="row"> -->
+        <!-- <div class="col-md-3"></div> -->
+        <!-- <div class="col-md-9 "> -->
+            <div class="card " id="fiveDayForecast">
                 <div class="card-body">
-                    <h5 class="card-title">5-Day Forecast</h5>
+                    <h5 class="card-title" id="forecast-title">5-Day Forecast</h5>
                     <div class="row">
                         <div class="col-md-2">
                             <p class="card-text" id="dayOneDate"></p>
                             <p class="card-text" id="dayOneTemp"></p>
                             <p class="card-text" id="dayOneHumidity"></p>
+                            <p class="card-text" id="dayOneWind"></p>
+                            <p class="card-text" id="dayOneUV"></p>
+                            <p class="card-text" id="dayOneIcon"></p>
                         </div>
                         <div class="col-md-2">
                             <p class="card-text" id="dayTwoDate"></p>
                             <p class="card-text" id="dayTwoTemp"></p>
                             <p class="card-text" id="dayTwoHumidity"></p>
+                            <p class="card-text" id="dayTwoWind"></p>
+                            <p class="card-text" id="dayTwoUV"></p>
+                            <p class="card-text" id="dayTwoIcon"></p>
                         </div>
                         <div class="col-md-2">
                             <p class="card-text" id="dayThreeDate"></p>
                             <p class="card-text" id="dayThreeTemp"></p>
                             <p class="card-text" id="dayThreeHumidity"></p>
+                            <p class="card-text" id="dayThreeWind"></p>
+                            <p class="card-text" id="dayThreeUV"></p>
+                            <p class="card-text" id="dayThreeIcon"></p>
                         </div>
                         <div class="col-md-2">
                             <p class="card-text" id="dayFourDate"></p>
                             <p class="card-text" id="dayFourTemp"></p>
                             <p class="card-text" id="dayFourHumidity"></p>
+                            <p class="card-text" id="dayFourWind"></p>
+                            <p class="card-text" id="dayFourUV"></p>
+                            <p class="card-text" id="dayFourIcon"></p>
                         </div>
                         <div class="col-md-2">
                             <p class="card-text" id="dayFiveDate"></p>
                             <p class="card-text" id="dayFiveTemp"></p>
                             <p class="card-text" id="dayFiveHumidity"></p>
+                            <p class="card-text" id="dayFiveWind"></p>
+                            <p class="card-text" id="dayFiveUV"></p>
+                            <p class="card-text" id="dayFiveIcon"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
   
        
 
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card" id="searchHistory">
-                <div class="card-body">
-                    <h5 class="card-title">Search History</h5>
-                    <ul class="list-group" id="searchHistoryList">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- <div class="row"> -->
+       
+    <!-- </div> -->
 </div>
 
 
